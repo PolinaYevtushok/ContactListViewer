@@ -1,7 +1,7 @@
-#include "contactlistprovider.h"
+#include "Header/contactlistprovider.h"
 #include <QtQuick/qquickitem.h>
 #include <QtQuick/qquickview.h>
-#include "contact.h"
+#include "Header/contact.h"
 
 ContactListProvider::ContactListProvider(QWidget* parent)
     : QWidget(parent)

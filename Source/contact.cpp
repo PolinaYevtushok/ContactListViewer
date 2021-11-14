@@ -1,4 +1,4 @@
-#include "contact.h"
+#include "Header/contact.h"
 
 Contact::Contact(QString name, QObject* parent)
     : QObject(parent),

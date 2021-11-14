@@ -15,20 +15,21 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt6 6.2 COMPONENTS Quick Gui REQUIRED)
 
+
 set(PROJECT_SOURCES
-        main.cpp
-        contactlistprovider.cpp
-        contactlistprovider.h
-        contact.h
-        contact.cpp
-        viewmodel.qrc
-        viewmodel.qml
+        Source/main.cpp
+        Source/contactlistprovider.cpp
+        Source/contact.cpp
+        Header/contactlistprovider.h
+        Header/contact.h
+        Resources/viewmodel.qrc
+        Resources/viewmodel.qml
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(ContactListViewer
         MANUAL_FINALIZATION
-        ${PROJECT_SOURCES} viewmodel.qrc
+        ${PROJECT_SOURCES} Resources/viewmodel.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET ContactListViewer APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
