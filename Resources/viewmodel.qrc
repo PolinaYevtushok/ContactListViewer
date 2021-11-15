@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>viewmodel.qml</file>
+        <file>contact.png</file>
     </qresource>
 </RCC>

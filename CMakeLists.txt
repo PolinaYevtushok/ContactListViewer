@@ -20,10 +20,13 @@ set(PROJECT_SOURCES
         Source/main.cpp
         Source/contactlistprovider.cpp
         Source/contact.cpp
+        Source/database.cpp
         Header/contactlistprovider.h
         Header/contact.h
+        Header/database.h
         Resources/viewmodel.qrc
         Resources/viewmodel.qml
+        Resources/contact.png
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
