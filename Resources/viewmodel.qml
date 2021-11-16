@@ -5,14 +5,20 @@ import Qt5Compat.GraphicalEffects
 ListView {
     id: root
     width: 400; height: 600
+    spacing: 2
+    leftMargin: 2
+    rightMargin: 2
+    topMargin: 2
+    bottomMargin: 2
+
     required model
+
     signal clicked(msg: string)
+
 
     delegate: Rectangle {
         id:contact
-        color: "lightgreen"
-        border.width: 1
-        border.color: "black"
+        color: "#06807e"
         radius: 5
 
         required property string name
@@ -23,6 +29,8 @@ ListView {
         Text {
             text: parent.name
             anchors.centerIn: parent
+            font.pointSize: 20
+            font.family: "Courier";
         }
         Image {
             id: contactImage
