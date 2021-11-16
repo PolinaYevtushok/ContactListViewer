@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 find_package(Qt6 6.2 COMPONENTS Quick Gui REQUIRED)
-
+find_package(Qt6 COMPONENTS Core5Compat REQUIRED)
 
 set(PROJECT_SOURCES
         Source/main.cpp
@@ -52,7 +52,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(ContactListViewer PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt6::Quick)
+target_link_libraries(ContactListViewer PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt6::Quick PUBLIC Qt6::Core5Compat)
 
 set_target_properties(ContactListViewer PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

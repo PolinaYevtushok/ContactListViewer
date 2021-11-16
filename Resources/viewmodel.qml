@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Qt5Compat.GraphicalEffects
 
 
 ListView {
@@ -24,17 +25,30 @@ ListView {
             anchors.centerIn: parent
         }
         Image {
+            id: contactImage
             anchors.left: parent.left
             anchors.leftMargin: 4
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height - 10
             width: height
             source: parent.image
+            visible: false
         }
         MouseArea {
             anchors.fill: parent
             onClicked: root.clicked(contact.name)
         }
+        OpacityMask {
+            anchors.fill: contactImage
+            source: contactImage
+            maskSource: Rectangle {
+                width: contactImage.width
+                height: contactImage.height
+                radius: 50
+                visible: false
+            }
+        }
     }
 }
+
 
