@@ -23,11 +23,18 @@ void ContactListProvider::call(QString id)
     (dynamic_cast<Contact*>(m_data_base->findContact(id)))->calling();
 }
 
+void ContactListProvider::onClickedFavorite(QString id)
+{
+    (dynamic_cast<Contact*>(m_data_base->findContact(id)))->toggleFavorite();
+}
+
 void ContactListProvider::setListView()
 {
     view->setSource(QUrl("qrc:/listviewmodel.qml"));
     QObject* item = view->rootObject();
-    auto connection_mouse_event = QObject::connect(item, SIGNAL(clicked(QString)), this, SLOT(call(QString)));
+    auto connection_mouse_event_clicked = QObject::connect(item, SIGNAL(clicked(QString)), this, SLOT(call(QString)));
+    auto connection_mouse_event_clickedFavorite = QObject::connect(item, SIGNAL(clickedFavorite(QString)),
+                                                                   this, SLOT(onClickedFavorite(QString)));
 }
 
 void ContactListProvider::setGridView()

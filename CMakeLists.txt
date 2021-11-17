@@ -28,8 +28,10 @@ set(PROJECT_SOURCES
         Header/mainwindow.h
         Resources/viewmodel.qrc
         Resources/listviewmodel.qml
-	Resources/gridviewmodel.qml
+        Resources/gridviewmodel.qml
         Resources/contact.png
+        Resources/favorite_star_active.png
+        Resources/favorite_star_deactive.png
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

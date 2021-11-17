@@ -8,23 +8,35 @@ class Contact : public QObject
     Q_OBJECT
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(QString image READ image WRITE setImage NOTIFY imageChanged)
+    Q_PROPERTY(QString image_photo READ imagePhoto WRITE setImagePhoto NOTIFY imagePhotoChanged)
+    Q_PROPERTY(QString image_favorite READ imageFavorite WRITE setImageFavorite NOTIFY imageFavoriteChanged)
 
 public:
-    Contact(QString name, QString image, QObject* parent = nullptr);
+    Contact(QString name, QString image_photo, QObject* parent = nullptr);
     const QString &name() const;
     void setName(const QString& newName);
 
-    const QString &image() const;
-    void setImage(const QString &newImage);
+    const QString &imagePhoto() const;
+    void setImagePhoto(const QString &newImage);
+    const QString &imageFavorite() const;
+    void setImageFavorite(const QString &newImage_favorite);
+
     void calling();
+
+    void toggleFavorite();
+
 signals:
     void nameChanged();
-    void imageChanged();
+    void imagePhotoChanged();
+
+    void imageFavoriteChanged();
 
 private:
     QString m_name;
-    QString m_image;
+    QString m_image_photo;
+    QString m_image_favorite_active;
+    QString m_image_favorite_deactive;
+    bool m_is_favorite = false;
 };
 
 #endif // CONTACT_H

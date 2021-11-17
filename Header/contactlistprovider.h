@@ -15,6 +15,7 @@ public:
     ContactListProvider(const std::shared_ptr<DataBase>& data_base, QWidget* parent = nullptr);
 public slots:
     void call(QString id);
+    void onClickedFavorite(QString id);
     void setListView();
     void setGridView();
 private:

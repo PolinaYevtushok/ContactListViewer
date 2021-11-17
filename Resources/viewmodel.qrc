@@ -3,5 +3,7 @@
         <file>listviewmodel.qml</file>
 	<file>gridviewmodel.qml</file>
         <file>contact.png</file>
+	<file>favorite_star_deactive.png</file>
+	<file>favorite_star_active.png</file>
     </qresource>
 </RCC>

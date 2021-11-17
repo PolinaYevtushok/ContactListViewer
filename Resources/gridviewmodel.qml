@@ -23,7 +23,7 @@ GridView {
         radius: 5
 
         required property string name
-        required property string image
+        required property string image_photo
 
         height: 100
         width: height
@@ -32,16 +32,9 @@ GridView {
             height: contact.height - 30
             width: height
             y: 10
-            anchors.horizontalCenter: parent.horizontalCenter
-            source: contact.image
+            anchors.centerIn: parent.horizontalCenter
+            source: contact.image_photo
             visible: false
-        }
-        Text {
-            text: contact.name
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: contactImage.bottom
-            font.pointSize: 20
-            font.family: "Courier";
         }
         MouseArea {
             anchors.fill: parent

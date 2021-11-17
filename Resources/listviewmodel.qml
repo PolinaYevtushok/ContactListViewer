@@ -15,18 +15,19 @@ ListView {
     required model
 
     signal clicked(msg: string)
-
+    signal clickedFavorite(msg: string)
 
     delegate: Rectangle {
         id:contact
         color: "#06807e"
         radius: 5
-
-        required property string name
-        required property string image
-
         height: 50
         width: parent.width
+
+        required property string name
+        required property string image_photo
+        required property string image_favorite
+
         Text {
             text: parent.name
             anchors.centerIn: parent
@@ -40,13 +41,28 @@ ListView {
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height - 10
             width: height
-            source: parent.image
+            source: parent.image_photo
             visible: false
+        }
+        Image {
+            id: favoriteImage
+            anchors.right: parent.right
+            anchors.rightMargin: 4
+            anchors.verticalCenter: parent.verticalCenter
+            height: parent.height - 20
+            width: height
+            source: parent.image_favorite
+
         }
         MouseArea {
             anchors.fill: parent
             onClicked: root.clicked(contact.name)
         }
+        MouseArea {
+            anchors.fill: favoriteImage
+            onClicked: root.clickedFavorite(contact.name)
+        }
+
         OpacityMask {
             anchors.fill: contactImage
             source: contactImage
