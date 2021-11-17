@@ -47,15 +47,13 @@ void Contact::toggleFavorite()
     emit imageFavoriteChanged();
 }
 
+bool Contact::isFavorite() const
+{
+    return m_is_favorite;
+}
+
 const QString &Contact::imageFavorite() const
 {
     return m_is_favorite ? m_image_favorite_active : m_image_favorite_deactive;
 }
 
-void Contact::setImageFavorite(const QString &newImage_favorite)
-{
-//    if (m_image_favorite == newImage_favorite)
-//        return;
-//    m_image_favorite = newImage_favorite;
-    emit imageFavoriteChanged();
-}

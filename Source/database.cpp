@@ -17,9 +17,9 @@ void DataBase::addNewContact(QObject *contact)
 
 QObject *DataBase::findContact(QString name)
 {
-    for(auto& item: m_contacts)
+    for (auto& item: m_contacts)
     {
-        if(dynamic_cast<Contact*>(item)->name() == name)
+        if (dynamic_cast<Contact*>(item)->name() == name)
             return item;
     }
     return nullptr;
@@ -28,4 +28,13 @@ QObject *DataBase::findContact(QString name)
 const QList<QObject *> &DataBase::getContacts() const
 {
     return m_contacts;
+}
+
+void DataBase::getFavoriteContacts(QList<QObject*>& favorite_contacts) const
+{
+    for (auto* contact : m_contacts)
+    {
+        if (dynamic_cast<Contact*>(contact)->isFavorite())
+            favorite_contacts.push_back(contact);
+    }
 }
