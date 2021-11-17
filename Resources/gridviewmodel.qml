@@ -2,19 +2,20 @@ import QtQuick 2.0
 import Qt5Compat.GraphicalEffects
 
 
-ListView {
+GridView {
     id: root
-    width: 400; height: 600
-    spacing: 2
+    width: parent
+    height: parent
     leftMargin: 2
     rightMargin: 2
     topMargin: 2
     bottomMargin: 2
+    cellHeight: 110
+    cellWidth: 110
 
     required model
 
-    signal clicked(msg: string)
-
+    signal clicked(msg: string)   
 
     delegate: Rectangle {
         id:contact
@@ -24,27 +25,27 @@ ListView {
         required property string name
         required property string image
 
-        height: 50
-        width: parent.width
+        height: 100
+        width: height
+        Image {
+            id: contactImage
+            height: contact.height - 30
+            width: height
+            y: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: contact.image
+            visible: false
+        }
         Text {
-            text: parent.name
-            anchors.centerIn: parent
+            text: contact.name
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: contactImage.bottom
             font.pointSize: 20
             font.family: "Courier";
         }
-        Image {
-            id: contactImage
-            anchors.left: parent.left
-            anchors.leftMargin: 4
-            anchors.verticalCenter: parent.verticalCenter
-            height: parent.height - 10
-            width: height
-            source: parent.image
-            visible: false
-        }
         MouseArea {
             anchors.fill: parent
-            onClicked: root.clicked(contact.name)
+            onClicked: root.clicked (contact.name)
         }
         OpacityMask {
             anchors.fill: contactImage

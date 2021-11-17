@@ -21,11 +21,14 @@ set(PROJECT_SOURCES
         Source/contactlistprovider.cpp
         Source/contact.cpp
         Source/database.cpp
+        Source/mainwindow.cpp
         Header/contactlistprovider.h
         Header/contact.h
         Header/database.h
+        Header/mainwindow.h
         Resources/viewmodel.qrc
-        Resources/viewmodel.qml
+        Resources/listviewmodel.qml
+	Resources/gridviewmodel.qml
         Resources/contact.png
 )
 

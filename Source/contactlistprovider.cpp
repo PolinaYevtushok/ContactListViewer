@@ -1,25 +1,38 @@
 #include "Header/contactlistprovider.h"
-#include <QtQuick/qquickitem.h>
-#include <QtQuick/qquickview.h>
 #include "Header/contact.h"
+#include <QLayout>
 
 ContactListProvider::ContactListProvider(const std::shared_ptr<DataBase>& data_base, QWidget* parent)
     : QWidget(parent),
       m_data_base(data_base)
 {
+    QLayout* layout = new QVBoxLayout(this);
 
-    QQuickView* view = new QQuickView();
+    view = new QQuickView();
+    QWidget* container = QWidget::createWindowContainer(view, this);
     view->setResizeMode(QQuickView::SizeRootObjectToView);
     view->setInitialProperties({{ "model", QVariant::fromValue(m_data_base->getContacts()) }});
-    view->setSource(QUrl("qrc:/viewmodel.qml"));
-    QObject* item = view->rootObject();
-    auto connection_mouse_event = QObject::connect(item, SIGNAL(clicked(QString)), this, SLOT(call(QString)));
-    //Q_ASSERT_X(connection_mouse_event, "ContactListProvider", "Connection failed!");
-    view->show();
+    setListView();
+
+    layout->addWidget(container);
 
 }
 
 void ContactListProvider::call(QString id)
 {
     (dynamic_cast<Contact*>(m_data_base->findContact(id)))->calling();
+}
+
+void ContactListProvider::setListView()
+{
+    view->setSource(QUrl("qrc:/listviewmodel.qml"));
+    QObject* item = view->rootObject();
+    auto connection_mouse_event = QObject::connect(item, SIGNAL(clicked(QString)), this, SLOT(call(QString)));
+}
+
+void ContactListProvider::setGridView()
+{
+    view->setSource(QUrl("qrc:/gridviewmodel.qml"));
+    QObject* item = view->rootObject();
+    auto connection_mouse_event = QObject::connect(item, SIGNAL(clicked(QString)), this, SLOT(call(QString)));
 }
