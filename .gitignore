@@ -983,7 +983,6 @@ _deps
 # Executables
 *.exe
 *.out
-*.app
 
 ##### C
 # Prerequisites
