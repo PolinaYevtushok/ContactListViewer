@@ -1,5 +1,4 @@
-#ifndef CONTACTLISTPROVIDER_H
-#define CONTACTLISTPROVIDER_H
+#pragma once
 
 #include <QWidget>
 #include <QVariant>
@@ -40,4 +39,3 @@ private:
     static QMap<EViewMode, QString> qml_path_by_view_mode;
 };
 
-#endif // CONTACTLISTPROVIDER_H

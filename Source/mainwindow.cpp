@@ -1,7 +1,5 @@
 #include "Header/mainwindow.h"
 
-#include <QSignalMapper>
-
 MainWindow::MainWindow(const std::shared_ptr<DataBase>& data_base, QWidget *parent)
     : QMainWindow(parent)
 {

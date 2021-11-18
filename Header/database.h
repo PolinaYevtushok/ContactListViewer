@@ -1,5 +1,5 @@
-#ifndef DATABASE_H
-#define DATABASE_H
+#pragma once
+
 #include "contact.h"
 
 class DataBase
@@ -14,5 +14,3 @@ public:
 private:
     QList<QObject*> m_contacts;
 };
-
-#endif // DATABASE_H

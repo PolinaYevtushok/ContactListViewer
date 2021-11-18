@@ -1,8 +1,6 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
-#include <QObject>
 #include<QMenuBar>
 #include <QToolBar>
 #include "contactlistprovider.h"
@@ -22,4 +20,4 @@ private:
     QToolBar* m_tool_bar;
 };
 
-#endif // MAINWINDOW_H
+

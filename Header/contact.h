@@ -1,5 +1,4 @@
-#ifndef CONTACT_H
-#define CONTACT_H
+#pragma once
 
 #include <QObject>
 
@@ -38,4 +37,3 @@ private:
     bool m_is_favorite = false;
 };
 
-#endif // CONTACT_H
