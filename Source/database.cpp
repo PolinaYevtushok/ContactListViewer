@@ -2,11 +2,11 @@
 
 DataBase::DataBase()
 {
-    m_contacts = {
-        new Contact("Item 1", "qrc:/contact.png"),
-        new Contact("Item 2", "qrc:/contact.png"),
-        new Contact("Item 3", "qrc:/contact.png")
-    };
+    for(int i = 1; i <= 50; ++i)
+    {
+        QString str = "Item" + QString::number(i);
+        m_contacts.push_back(new Contact(str, "qrc:/contact.png"));
+    }
 
 }
 
@@ -37,4 +37,12 @@ void DataBase::getFavoriteContacts(QList<QObject*>& favorite_contacts) const
         if (dynamic_cast<Contact*>(contact)->isFavorite())
             favorite_contacts.push_back(contact);
     }
+}
+
+void DataBase::getChunkingContacts(QList<QObject *> &chunking_contacts, int index, int size) const
+{
+    QVector<QObject*> contacts_vector = m_contacts.toVector();
+
+    for(int i = index, j = 0;j < size && i != contacts_vector.size(); ++i, ++j)
+        chunking_contacts.push_back(contacts_vector[i - 1]);
 }

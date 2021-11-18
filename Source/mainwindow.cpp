@@ -27,8 +27,14 @@ void MainWindow::createMenu()
 void MainWindow::createToolBar()
 {
     m_tool_bar = new QToolBar(this);
+
     QAction* show_favorites = new QAction(QIcon(":/favorite_star_active.png"), "Show Mode", this);
     m_tool_bar->addAction(show_favorites);
     connect(show_favorites, SIGNAL(triggered()), m_provider, SLOT(toggleFavoriteShowMode()));
+
+    QAction* get_chunk = new QAction(QIcon(":/chunk.png"), "Chunking", this);
+    m_tool_bar->addAction(get_chunk);
+    connect(get_chunk, SIGNAL(triggered()), m_provider, SLOT(toggleChunkShowMode()));
+
     addToolBar(m_tool_bar);
 }

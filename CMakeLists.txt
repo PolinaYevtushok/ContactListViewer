@@ -32,6 +32,7 @@ set(PROJECT_SOURCES
         Resources/contact.png
         Resources/favorite_star_active.png
         Resources/favorite_star_deactive.png
+        Resources/chunk.png
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

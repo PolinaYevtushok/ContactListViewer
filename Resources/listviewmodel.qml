@@ -22,7 +22,7 @@ ListView {
         color: "#06807e"
         radius: 5
         height: 50
-        width: parent.width
+        width: root.width
 
         required property string name
         required property string image_photo
