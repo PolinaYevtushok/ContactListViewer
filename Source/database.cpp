@@ -41,11 +41,11 @@ void DataBase::getFavoriteContacts(QList<QObject*>& favorite_contacts) const
 
 void DataBase::getChunkingContacts(QList<QObject *> &chunking_contacts, int index, int size) const
 {
-    if(index != 0 && size != 0)
+    QVector<QObject*> contacts_vector = m_contacts.toVector();
+    if(index > 0 && size > 0 && index < contacts_vector.size())
     {
-        QVector<QObject*> contacts_vector = m_contacts.toVector();
 
-        for(int i = index, j = 0;j < size && i != contacts_vector.size(); ++i, ++j)
+        for(int i = index, j = 0;j < size && i < contacts_vector.size() + 1; ++i, ++j)
             chunking_contacts.push_back(contacts_vector[i - 1]);
     }
 }
