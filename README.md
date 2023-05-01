@@ -8,5 +8,11 @@ Features:
   <li>Smart chunk-retrieving for long lists
   <li>Favorites: possibility to add to favorites (using star button) and show only favorites
 </ul>
-https://user-images.githubusercontent.com/79933520/142575632-18f43651-956d-4b62-a60b-2c91db63c4a2.mp4
+
+Technologies:
+<ul><li>  C++ 
+  <li>Qt
+  <li>CMake
+</ul>
+<p>Video: https://drive.google.com/file/d/1rcUJ1V3Vfbxh0g8V1u478B2zcMKEkATr/view?usp=sharing
 
